@@ -1,9 +1,13 @@
 var path = require("path");
 
 module.exports = function(app) {
-
+  // Homepage route
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    // Handlebars object for homepage content
+    var hbsObject = {
+      homepage: res
+    };
+    res.render("index", hbsObject);
   });
 
   app.get("/registration", function(req, res) {
