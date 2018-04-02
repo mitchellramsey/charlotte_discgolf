@@ -1,0 +1,141 @@
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Carter+One');
+
+/* Main styles */
+
+ul {
+    margin-bottom: 8px;
+}
+
+footer {
+    border-top: 1px solid #000;
+}
+
+footer a,
+nav a {
+    color: #000;
+}
+
+nav a:hover,
+footer a:hover {
+    color: #ff0000;
+}
+
+/* Base styles */
+
+.jumbotron {
+    height: 250px;
+    background: #d3d3d3 url("/images/banner-img.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #000;
+}
+
+.display-4 {
+    padding-top: 300px;
+    color: #000;
+    font-size: 4.8em;
+    font-family: 'Carter One', cursive;
+}
+
+.image {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 250px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    margin: 20px 0 40px 0;
+    border: 2px solid #fff;
+  }
+
+.center {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+.text {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}
+
+.img {
+    height: 150px;
+}
+
+.wrap:hover .image {
+    opacity: 0.3;
+  }
+  
+.wrap:hover .center{
+    opacity: 1;
+}
+
+.btn a {
+    color: #fff;
+}
+
+.btn-primary {
+    border-color: none;
+}
+
+.btn-primary,
+.btn-primary:hover {
+  background-color: #000;
+  border-color: #fff;
+  border-radius: 0%;
+}
+
+.main-body {
+    height: 300px;
+}
+
+.form-control {
+    border-radius: 0%;
+    border-color: #000;
+}
+
+.navbar {
+    padding-bottom: 1px;
+    background-color: #d3d3d3;
+}
+
+#username {
+    margin-right: 5px;
+}
+
+#newUser {
+    padding: 5px;
+    color: #000;
+}
+
+#github {
+    padding-top: 15px;
+}
+
+#github-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+#contact {
+    padding-right: 36px;
+}
+
+#forgotPass {
+    padding-left: 90px;
+}
+
+#rememberMe {
+    margin-bottom: 0px;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Charlotte Disc-Golf</title>
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- CSS Link -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- jQuery Link -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> 
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul class="ml-auto">
+            <form class="form-inline">
+                <div class="input-group">
+                    <!-- Username input -->
+                    <input type="text" class="form-control" id="username" placeholder="Username" aria-label="Username" aria-describedby="Username-input">
+                    <!-- Password input -->
+                    <input type="text" class="form-control" id="password" placeholder="Password" aria-label="Username" aria-describedby="Password-input">
+                </div>
+            </form>
+            <!-- User helper settings -->
+            <fieldset>
+                <label class="checkbox inline" id="rememberMe">
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+                <a class="help-inline" id="forgotPass" href="#">Forgot password?</a>
+            </fieldset>
+        </ul>
+    </nav>
+
+    <!-- Jumbotron/Banner -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center">Charlotte Disc-Golf</h1>
+        </div>
+    </div>
+
+    <!-- Center content -->
+    <div class="container main-body">
+        <div class="row">
+            
+        </div>
+    </div>
+    
+    <!-- Lower content -->
+    <div class="container" id="lowerContent">
+        <div class="row justify-content-center">
+            <div class="col-md-4 wrap">
+                <img src="/images/courses.jpg" class="rounded float-left img-fluid image" alt="Courses">
+                    <div class="center">
+                        <button type="button" class="btn btn-primary text"><a href="/courses">Courses</a></button>
+                    </div>
+            </div>
+            <div class="col-md-4 wrap">
+                <img src="/images/registration-icon.png" class="rounded float-left img-fluid image" alt="Registration">
+                    <div class="center">
+                        <button type="button" class="btn btn-primary text"><a href="/registration">Registration</a></button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Navbar -->
+        <nav class="navbar navbar-inverse text-center">
+            <div class="row justify-content-center">
+                <!-- About -->
+                <div class="col-md-4">
+                    <h3 id="about">About</h3>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem corporis modi culpa vitae sunt 
+                    libero earum dolorem omnis! Provident blanditiis nulla reiciendis dolor quaerat dolore molestias ipsa 
+                    eum a incidunt.
+                </div>
+        
+                <!-- Contact -->
+                <div class="col-md-4">
+                    <h3 id="contact"><a href="#">Contact</a></h3>
+
+                    <h3 id="github"><a href="https://github.com/mramsey1992/charlotte_discgolf" target="_blank" id="githubLink">GitHub<img src="/images/githubv3.png" alt="Github-logo" id="github-image"></a></h3>
+                </div>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>
