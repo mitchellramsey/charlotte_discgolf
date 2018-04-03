@@ -25,7 +25,6 @@ module.exports = function(app) {
     var courseInfoObject = {
       courseInfo: res
     };
-    res.render("courses", courseInfoObject);
+    res.render("course-info", courseInfoObject);
   });
-
 };
