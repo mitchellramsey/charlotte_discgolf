@@ -30,5 +30,10 @@ db.Course.findAndCountAll({}).then(function(result) {
 
 
 module.exports = function(app) {
-
+    app.get("/api/courses", function(req,res) {
+      
+        db.Course.findAll({}).then(function(dbCourse) {
+            res.json(dbCourse);
+        });
+    });
 };
