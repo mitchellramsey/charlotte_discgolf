@@ -10,12 +10,16 @@ module.exports = function(app) {
     res.render("index", hbsObject);
   });
 
-  app.get("/registration", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/registration.html"));
+  app.get("/courses", function(req, res) {
+    // Handlebars object for homepage content
+    var courseObject = {
+      courses: res
+    };
+    res.render("courses", courseObject);
   });
 
-  app.get("/courses", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/courses.html"));
+  app.get("/registration", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/registration.html"));
   });
 
   app.get("/course_info", function(req, res) {
