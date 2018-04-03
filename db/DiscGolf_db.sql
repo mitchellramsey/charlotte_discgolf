@@ -1,4 +1,4 @@
-DROP DATABASE if EXISTS "disc_golf_db";
+DROP DATABASE IF EXISTS "disc_golf_db";
 
 CREATE DATABASE "disc_golf_db";
 
