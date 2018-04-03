@@ -118,6 +118,42 @@ footer a:hover {
     padding-left: 5px;
 }
 
+.lowerContent {
+    padding-bottom: 15px;
+}
+
+.informationArea {
+    padding-top: 10px;
+}
+
+.courses-login {
+    padding-right: 20px;
+    font-weight: 600;
+}
+
+.course-header {
+    padding-top: 20px;
+}
+
+.course-main {
+    height: 450px;
+}
+
+.github {
+    padding-top: 15px;
+}
+
+.github-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.contact {
+    padding-right: 36px;
+}
+
 #username {
     margin-right: 5px;
 }
@@ -127,46 +163,10 @@ footer a:hover {
     color: #000;
 }
 
-#github {
-    padding-top: 15px;
-}
-
-#github-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-left: 5px;
-}
-
-#contact {
-    padding-right: 36px;
-}
-
 #forgotPass {
     padding-left: 90px;
 }
 
 #rememberMe {
     margin-bottom: 0px;
-}
-
-#lowerContent {
-    padding-bottom: 15px;
-}
-
-#informationArea {
-    padding-top: 10px;
-}
-
-.courses-login {
-    padding-right: 20px;
-    font-weight: 600;
-}
-
-#course-header {
-    padding-top: 20px;
-}
-
-#course-main {
-    height: 450px;
 }

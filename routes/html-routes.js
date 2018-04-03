@@ -10,20 +10,22 @@ module.exports = function(app) {
     res.render("index", hbsObject);
   });
 
+  // Course route
   app.get("/courses", function(req, res) {
-    // Handlebars object for homepage content
+    // Handlebars object for courses content
     var courseObject = {
       courses: res
     };
     res.render("courses", courseObject);
   });
 
-  app.get("/registration", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/registration.html"));
-  });
-
-  app.get("/course_info", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/course_info.html"));
+  // Course info route
+  app.get("/courseinfo", function(req, res) {
+    // Handlebars object for course info content
+    var courseInfoObject = {
+      courseInfo: res
+    };
+    res.render("courses", courseInfoObject);
   });
 
 };
