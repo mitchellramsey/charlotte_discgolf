@@ -25,7 +25,15 @@ module.exports = function(app) {
     var courseInfoObject = {
       courseInfo: res
     };
-    res.render("courses", courseInfoObject);
+    res.render("course-info", courseInfoObject);
   });
 
+  // Course info route
+  app.get("/registration", function(req, res) {
+    // Handlebars object for course info content
+    var registrationObj = {
+      register: res
+    };
+    res.render("registration", registrationObj);
+  });
 };
