@@ -10,15 +10,6 @@ module.exports = function(app) {
     res.render("index", hbsObject);
   });
 
-  // Course route
-  app.get("/courses", function(req, res) {
-    // Handlebars object for courses content
-    var courseObject = {
-      courses: res
-    };
-    res.render("courses", courseObject);
-  });
-
   // Course info route
   app.get("/courseinfo", function(req, res) {
     // Handlebars object for course info content
