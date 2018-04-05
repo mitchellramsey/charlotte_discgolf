@@ -1,21 +1,49 @@
 var path = require("path");
 
 module.exports = function(app) {
-
+  // Homepage route
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+    // Handlebars object for homepage content
+    var hbsObject = {
+      homepage: res
+    };
+    res.render("index", hbsObject);
   });
 
-  app.get("/registration", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/registration.html"));
-  });
-
+  // Course route
   app.get("/courses", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/courses.html"));
+    // Handlebars object for courses content
+    var courseObject = {
+      courses: res
+    };
+    res.render("courses", courseObject);
   });
 
-  app.get("/course_info", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/course_info.html"));
+
+  app.get("/user", function(req, res) {
+    // Handlebars object for users content
+    var userObject = {
+      user: res
+    };
+    res.render("user_main", userObject);
   });
 
+
+  // Course info route
+  app.get("/courseinfo", function(req, res) {
+    // Handlebars object for course info content
+    var courseInfoObject = {
+      courseInfo: res
+    };
+    res.render("course-info", courseInfoObject);
+  });
+
+  // Course info route
+  app.get("/registration", function(req, res) {
+    // Handlebars object for course info content
+    var registrationObj = {
+      register: res
+    };
+    res.render("registration", registrationObj);
+  });
 };
