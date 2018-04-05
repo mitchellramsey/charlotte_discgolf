@@ -1,7 +1,7 @@
 var db = require("../models");
 
 //hole data
-db.Course.findAndCountAll({}).then(function(result) {
+db.Hole.findAndCountAll({}).then(function(result) {
     if(result.count === 0) {
         db.Hole.create({
             hole_number: 1,

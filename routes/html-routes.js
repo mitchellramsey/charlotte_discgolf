@@ -20,14 +20,6 @@ module.exports = function(app) {
   });
 
 
-  app.get("/user", function(req, res) {
-    // Handlebars object for users content
-    var userObject = {
-      user: res
-    };
-    res.render("user_main", userObject);
-  });
-
 
   // Course info route
   app.get("/courseinfo", function(req, res) {

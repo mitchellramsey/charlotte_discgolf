@@ -15,6 +15,46 @@
     
 </div>
 
+<div class="container course-main">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title text-center">Course Name</p>
+            {{#each coursesList}}
+                <ul class="text-center" id="course-list">
+                    {{name}}
+                </ul>
+            {{/each}}
+        </div>
+        <div class="col-md-3 text-center">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title">Address</p>
+                {{#each coursesList}}
+                    <ul class="text-left">
+                        {{address}}
+                    </ul>
+                {{/each}}
+        </div>
+        <div class="col-md-3">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title text-center" id="holes">Holes</p>
+                {{#each coursesList}}
+                    <ul class="text-center">
+                        {{holes}}
+                    </ul>
+                {{/each}}
+        </div>
+        <div class="col-md-3">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title text-center" id="rating">Rating</p>
+                {{#each coursesList}}
+                    <ul class="text-center">
+                        {{rating}}
+                    </ul>
+                {{/each}}
+        </div>
+    </div>
+</div>
 
 <!-- Footer -->
 <footer>
