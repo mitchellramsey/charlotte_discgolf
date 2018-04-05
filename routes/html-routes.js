@@ -19,6 +19,8 @@ module.exports = function(app) {
     res.render("courses", courseObject);
   });
 
+
+
   // Course info route
   app.get("/courseinfo", function(req, res) {
     // Handlebars object for course info content

@@ -1,4 +1,5 @@
 var db = require("../models");
+var path = require("path");
 
 //Course Data
 db.Course.findAndCountAll({}).then(function(result) {
@@ -28,7 +29,17 @@ db.Course.findAndCountAll({}).then(function(result) {
     
 });
 
-
+// Exporting the function
 module.exports = function(app) {
-
+    app.get("/courses", function(req,res) {
+        // Retrieving all database records
+        db.Course.findAll({}).then(function(dbCourse) {
+            // Passing handlebars the data from findAll
+            var coursesObj = {
+                coursesList: dbCourse
+            };
+            // Rendering courses and passing the data to be parsed on the handlebars page
+            res.render("courses", coursesObj);
+        });
+    });
 };
