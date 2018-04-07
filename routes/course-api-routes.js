@@ -33,7 +33,11 @@ module.exports = function(app) {
     app.get("/api/courses", function(req,res) {
       
         db.Course.findAll({}).then(function(dbCourse) {
-            res.json(dbCourse);
+            var courseObject = {
+                course: dbCourse
+            }
+            console.log(courseObject);
+            res.render("courses", courseObject);
         });
     });
 };
