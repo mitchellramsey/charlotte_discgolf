@@ -200,6 +200,13 @@ footer a:hover {
     padding-left: 30px;
 }
 
+#sign-in-page {
+    height: 600px;
+}
+
+#sign-in-header {
+    width: 100%;
+}
 
 /* REGISTRATION CSS */
 
