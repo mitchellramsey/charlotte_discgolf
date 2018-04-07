@@ -1,0 +1,21 @@
+
+{{!-- Sign In page --}}
+<div class="container" id="sign-in-page">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-md-8">
+      
+      <form id="signin" name="signin" method="post" action="/api/models/user_info/">
+        <label for="email">Email Address</label>
+        <input class="text" name="email" type="text" />
+        <label for="password">Password</label>
+        <input name="password" type="password" />
+        <input class="btn" id="sign-in" type="submit" value="Sign In" />
+      </form>
+
+      <div>
+        <p>If you are not yet a member please click the Registration link below.</p>
+        <a href="registration"><strong>Register</strong></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -330,5 +330,20 @@ db.Hole.findAndCountAll({}).then(function(result) {
     };
 });
 module.exports = function(app) {
+    app.get("/courses/:id/holes", function(req,res) {
+        // Retrieving all database records
+        db.Hole.findAll({}).then(function(dbHole) {
+            // Passing handlebars the data from findAll
+            var infoObj = {
+                infoList: dbHole,
 
+                // Renders the courses partial
+                partial: function() {
+                    return "courses-info";
+                }
+            };
+            // Rendering courses and passing the data to be parsed on the handlebars page
+            res.render("index", infoObj);
+        });
+    });
 };

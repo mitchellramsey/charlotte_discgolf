@@ -6,6 +6,7 @@
 
 ul {
     margin-bottom: 8px;
+    list-style-type: none;
 }
 
 p {
@@ -108,7 +109,8 @@ footer a:hover {
     border-color: #000;
 }
 
-.navbar {
+.navbar,
+.information-background {
     padding-bottom: 1px;
     background-color: #d3d3d3;
     border-bottom: 1px solid #000;
@@ -129,6 +131,7 @@ footer a:hover {
 .courses-login {
     padding-right: 20px;
     font-weight: 600;
+    font-size: 2em;
 }
 
 .course-header {
@@ -160,6 +163,14 @@ footer a:hover {
     font-size: 1.5em;
 }
 
+.holes {
+    padding-left: 40px;
+}
+
+.course-list {
+    padding-left: 5px;
+}
+
 .text-space {
     padding-right: 5px;
 }
@@ -181,12 +192,20 @@ footer a:hover {
     margin-bottom: 0px;
 }
 
-#holes {
+#par {
     padding-left: 40px;
 }
 
-#course-list {
-    padding-left: 5px;
+#distance {
+    padding-left: 30px;
+}
+
+#sign-in-page {
+    height: 600px;
+}
+
+#sign-in-header {
+    width: 100%;
 }
 
 /* REGISTRATION CSS */

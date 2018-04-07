@@ -1,0 +1,45 @@
+<div class="container">
+    <h1 class="display-4 text-center course-header">Courses</h1>
+    
+</div>
+
+<div class="container course-main">
+    <div class="row">
+        <div class="col-md-3 text-center">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title text-center">Course Name</p>
+            {{#each coursesList}}
+                <ul class="text-center" class="course-list">
+                    <a href="/courses/{{this.id}}/holes"><button data-toggle="collapse"><li data-id="{{this.id}}">{{name}}</li></button></a>
+                </ul>
+            {{/each}}
+        </div>
+        <div class="col-md-3 text-center">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title">Address</p>
+                {{#each coursesList}}
+                    <ul class="text-left">
+                        <li>{{address}}</li>
+                    </ul>
+                {{/each}}
+        </div>
+        <div class="col-md-3">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title text-center" class="holes">Holes</p>
+                {{#each coursesList}}
+                    <ul class="text-center">
+                        <li>{{holes}}</li>
+                    </ul>
+                {{/each}}
+        </div>
+        <div class="col-md-3">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title text-center" class="rating">Rating</p>
+                {{#each coursesList}}
+                    <ul class="text-center">
+                        <li>{{rating}}</li>
+                    </ul>
+                {{/each}}
+        </div>
+    </div>
+</div>
