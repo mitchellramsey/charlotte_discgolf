@@ -340,12 +340,12 @@ module.exports = function(app) {
             // Passing handlebars the data from findAll
             var infoObj = {
                 infoList: dbHole,
-                // Renders the courses partial
+                // Renders the courses-info partial
                 partial: function() {
                     return "courses-info";
                 }
             };
-            // Rendering courses and passing the data to be parsed on the handlebars page
+            // Rendering index and passing the data to be parsed on the handlebars page
             res.render("index", infoObj);
         });
     });

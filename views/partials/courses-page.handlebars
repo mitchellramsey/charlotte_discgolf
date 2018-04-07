@@ -4,40 +4,46 @@
 
 <div class="container course-main">
     <div class="row">
-        <div class="col-md-3 text-center">
-            {{!-- Looping over the database entries with handlebars --}}
-            <p class="column-title text-center">Course Name</p>
-            {{#each coursesList}}
-                <ul class="text-center" class="course-list">
-                    <a href="/courses/{{this.id}}/holes"><button><li data-id="{{this.id}}">{{name}}</li></button></a>
-                </ul>
-            {{/each}}
-        </div>
-        <div class="col-md-3 text-center">
-            {{!-- Looping over the database entries with handlebars --}}
-            <p class="column-title">Address</p>
+        <div class="col-md-12">
+            <div class="row text-center">
+                  <div class="col-md-3">
+                        <h2>Course Name</h2>
+                    </div>
+                    <div class="col-md-3">
+                        <h2>Address</h2>
+                    </div>
+                    <div class="col-md-3">
+                        <h2>Holes</h2>
+                    </div>
+                    <div class="col-md-3">
+                        <h2>Rating</h2>
+                    </div>
+            </div>
                 {{#each coursesList}}
-                    <ul class="text-left">
-                        <li>{{address}}</li>
-                    </ul>
-                {{/each}}
-        </div>
-        <div class="col-md-3">
-            {{!-- Looping over the database entries with handlebars --}}
-            <p class="column-title text-center" class="holes">Holes</p>
-                {{#each coursesList}}
-                    <ul class="text-center">
-                        <li>{{holes}}</li>
-                    </ul>
-                {{/each}}
-        </div>
-        <div class="col-md-3">
-            {{!-- Looping over the database entries with handlebars --}}
-            <p class="column-title text-center" class="rating">Rating</p>
-                {{#each coursesList}}
-                    <ul class="text-center">
-                        <li>{{rating}}</li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <ul class="text-center">
+                                <a href="/courses/{{this.id}}/holes"><button><li data-id="{{this.id}}">{{name}}</li></button></a>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3">
+                            <ul class="text-center">
+                                <li>{{address}}</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3">
+                            <ul class="text-center">
+                                <li>{{holes}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="text-center">
+                                <li>{{rating}}</li>
+                            </ul>
+                        </div>
+                    </div>
                 {{/each}}
         </div>
     </div>

@@ -1,29 +1,41 @@
 
+{{!-- Displays course information --}}
 <div class="container">
     <div class="row information-background">
-        <div class="col-md-4">
-            <p class="column-title text-center" class="holes">Hole Number</p>
-            {{#each infoList}}
-                <ul class="text-center hole-info">
-                    <li>{{this.hole_number}}.</li>
-                </ul>
-            {{/each}}
-        </div>
-        <div class="col-md-4">
-            <p class="column-title text-center" id="par" class="holes">Par</p>
-            {{#each infoList}}
-                <ul class="text-center hole-info">
-                    <li>{{this.par}}</li>
-                </ul>
-            {{/each}}
-        </div>
-        <div class="col-md-4">
-            <p class="column-title text-center" id="distance" class="holes">Distance</p>
-            {{#each infoList}}
-                <ul class="text-center hole-info">
-                    <li>{{this.distance}} .ft</li>
-                </ul>
-            {{/each}}
+
+        <div class="col-md-12">
+            <div class="row text-center">
+                  <div class="col-md-4">
+                        <h2>Hole Number</h2>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Par</h2>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>Distance</h2>
+                    </div>
+            </div>
+                {{#each infoList}}
+                    <div class="row row-border">
+                        <div class="col-md-4">
+                            <ul class="text-center hole-info">
+                                <li>{{this.hole_number}}.</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <ul class="text-center hole-info">
+                                <li>{{this.par}}</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <ul class="text-center hole-info">
+                                <li>{{this.distance}} .ft</li>
+                            </ul>
+                        </div>
+                    </div>
+                {{/each}}
         </div>
     </div>
 </div>

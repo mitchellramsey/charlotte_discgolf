@@ -73,6 +73,10 @@ footer a:hover {
     padding: 16px 32px;
 }
 
+.row-border {
+    border-bottom: 1px solid #000;
+}
+
 .img {
     height: 150px;
 }
