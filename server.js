@@ -29,7 +29,8 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 // Exposes the registerHelper and registerPartial method from handlebars
-hbs.registerPartials(__dirname + '/views/partials')
+hbs.registerPartials(__dirname + '/views/partials');
+require('handlebars-form-helpers').register(hbs.handlebars);
 
 // Import routes and give the server access to them
 require("./routes/html-routes")(app);
