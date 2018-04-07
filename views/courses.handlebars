@@ -12,13 +12,52 @@
 
 <div class="container">
     <h1 class="display-4 text-center course-header">Courses</h1>
+    
 </div>
 
 <div class="container course-main">
     <div class="row">
+<<<<<<< HEAD
         <div class="col-md-4">
         
            
+=======
+        <div class="col-md-3 text-center">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title text-center">Course Name</p>
+            {{#each coursesList}}
+                <ul class="text-center" id="course-list">
+                    {{name}}
+                </ul>
+            {{/each}}
+        </div>
+        <div class="col-md-3 text-center">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title">Address</p>
+                {{#each coursesList}}
+                    <ul class="text-left">
+                        {{address}}
+                    </ul>
+                {{/each}}
+        </div>
+        <div class="col-md-3">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title text-center" id="holes">Holes</p>
+                {{#each coursesList}}
+                    <ul class="text-center">
+                        {{holes}}
+                    </ul>
+                {{/each}}
+        </div>
+        <div class="col-md-3">
+            {{!-- Looping over the database entries with handlebars --}}
+            <p class="column-title text-center" id="rating">Rating</p>
+                {{#each coursesList}}
+                    <ul class="text-center">
+                        {{rating}}
+                    </ul>
+                {{/each}}
+>>>>>>> 8b0c87eb98dcb21f7a7e9bcffa426530d27c442c
         </div>
     </div>
 </div>
