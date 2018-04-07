@@ -6,6 +6,15 @@ module.exports = function(app) {
     // Method to load the homepage partial
     res.render("index", {
       partial: function() {
+        return "signin";
+      }
+    });
+  });
+
+  app.get("/homepage", function(req, res) {
+
+    res.render("index", {
+      partial: function() {
         return "homepage";
       }
     });
