@@ -4,7 +4,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 // Requiring hbs
 var hbs = require('hbs');
-
+// var methodOverride = require('method-override'); 
 // Setting the port number
 var PORT = process.env.PORT || 8080;
 
@@ -13,7 +13,7 @@ var db = require("./models");
 
 // Intializing Express
 var app = express();
-
+// app.use(methodOverride("_method"));
 // Serving up the public folder to give static content
 app.use(express.static("public"));
 
