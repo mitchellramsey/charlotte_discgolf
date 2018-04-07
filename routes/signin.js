@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-app.post("/api/models/user_info/", function(req, res) {
+app.post("/new", function(req, res) {
   console.log(req.body)
 db.UserInfo.find({
   where: {
@@ -15,7 +15,7 @@ db.UserInfo.find({
     console.log(result);
     if(result){
       console.log("Access Granted!!")
-      res.redirect("/");
+      res.redirect("/homepage");
     } else {
       console.log("Username or Password was incorrect.")
     }

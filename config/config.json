@@ -1,22 +1,26 @@
 {
   "development": {
     "username": "root",
-    "password": "root",
+    "password": "Boarder@14",
     "database": "disc_golf_db",
+<<<<<<< HEAD
     "port": 3307,
+=======
+    "port": 3306,
+>>>>>>> 166b43cd2e7a3963b283ee4b89106a85bbb13457
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "root",
+    "password": "Boarder@14",
     "database": "disc_golf_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": null,
+    "password": "Boarder@14",
     "database": "disc_golf_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
