@@ -37,6 +37,7 @@ require("./routes/course-api-routes.js")(app);
 require("./routes/hole-api-routes.js")(app);
 require("./routes/userInfo-api-routes.js")(app);
 require("./routes/userRound-api-routes.js")(app);
+require("./routes/signin.js")(app);
 
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
