@@ -34,20 +34,12 @@ module.exports = function(app) {
     app.get("/courses", function(req,res) {
         // Retrieving all database records
         db.Course.findAll({}).then(function(dbCourse) {
-<<<<<<< HEAD
-            var courseObject = {
-                course: dbCourse
-            }
-            console.log(courseObject);
-            res.render("courses", courseObject);
-=======
             // Passing handlebars the data from findAll
             var coursesObj = {
                 coursesList: dbCourse
             };
             // Rendering courses and passing the data to be parsed on the handlebars page
             res.render("courses", coursesObj);
->>>>>>> 8b0c87eb98dcb21f7a7e9bcffa426530d27c442c
         });
     });
 };

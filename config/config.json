@@ -3,8 +3,7 @@
     "username": "root",
     "password": "root",
     "database": "disc_golf_db",
-    "port": 3306,
-    "database": "disc_golf_db",
+
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
