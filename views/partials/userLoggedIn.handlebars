@@ -1,11 +1,17 @@
-{{!-- Placeholder until validation is complete --}}
 
 <!-- Navbar -->
-<nav class="navbar justify-content-between">
-    <ul class="content-nav">
-        <a class="courses-login" href="/homepage">Home</a>
-        <a class="courses-login" href="/courses">Courses</a>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link courses-login" href="/homepage">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link courses-login" href="/courses">Courses</a>
+      </li>
     </ul>
-        
-    {{> username}}  
-</nav>
+    <span class="navbar-text">
+        {{#if usersList.user_name}}
+            <p class="text-right courses-login">Welcome, <a href="/userprofile"><span class="navbar-text">{{usersList.user_name}}</span></a></p>
+        {{/if}} 
+    </span>
+  </div>
