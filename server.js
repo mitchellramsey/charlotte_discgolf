@@ -29,7 +29,8 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 // Exposes the registerHelper and registerPartial method from handlebars
-hbs.registerPartials(__dirname + '/views/partials')
+hbs.registerPartials(__dirname + '/views/partials');
+// require('handlebars-form-helpers').register(hbs.handlebars);
 
 // Import routes and give the server access to them
 require("./routes/html-routes")(app);
@@ -39,7 +40,7 @@ require("./routes/userInfo-api-routes.js")(app);
 require("./routes/userRound-api-routes.js")(app);
 require("./routes/signin.js")(app);
 
-db.sequelize.sync().then(function() {
+db.sequelize.sync({force:true}).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

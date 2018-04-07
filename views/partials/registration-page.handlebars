@@ -1,7 +1,8 @@
 
 {{!-- Registration form --}}
+
 <form method="POST" action="/new" style="border:1px solid #ccc"> 
-<input type="hidden" name="_method" value="CREATE">
+<input type="hidden" >
     <div class="container reg-container">
         <h1>Sign Up</h1>
         <p>Please fill in this form to create an account.</p>
@@ -17,6 +18,11 @@
         </label>
         <input type="text" placeholder="Enter Email" name="email" required>
 
+        <label for="username">
+            <b>Username</b>
+        </label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
         <label for="psw">
             <b>Password</b>
         </label>
@@ -31,3 +37,5 @@
         </div>
     </div>
 </form>
+
+
