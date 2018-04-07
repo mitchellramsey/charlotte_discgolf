@@ -1,9 +1,9 @@
 var path = require("path");
 
 module.exports = function(app) {
-  // Homepage route
+  // Sign-in route
   app.get("/", function(req, res) {
-    // Method to load the homepage partial
+    // Method to load the sign-in partial
     res.render("index", {
       partial: function() {
         return "signin";
@@ -11,8 +11,9 @@ module.exports = function(app) {
     });
   });
 
+  // Hompage route
   app.get("/homepage", function(req, res) {
-
+    // Method to load the homepage partial
     res.render("index", {
       partial: function() {
         return "homepage";

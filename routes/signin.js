@@ -2,7 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
 
-app.post("/new", function(req, res) {
+app.post("/api/models/user_info/", function(req, res) {
   console.log(req.body)
 db.UserInfo.find({
   where: {

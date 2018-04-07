@@ -1,6 +1,5 @@
 <div class="container">
     <h1 class="display-4 text-center course-header">Courses</h1>
-    
 </div>
 
 <div class="container course-main">
@@ -10,7 +9,7 @@
             <p class="column-title text-center">Course Name</p>
             {{#each coursesList}}
                 <ul class="text-center" class="course-list">
-                    <a href="/courses/{{this.id}}/holes"><button data-toggle="collapse"><li data-id="{{this.id}}">{{name}}</li></button></a>
+                    <a href="/courses/{{this.id}}/holes"><button><li data-id="{{this.id}}">{{name}}</li></button></a>
                 </ul>
             {{/each}}
         </div>

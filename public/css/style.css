@@ -109,8 +109,7 @@ footer a:hover {
     border-color: #000;
 }
 
-.navbar,
-.information-background {
+.navbar {
     padding-bottom: 1px;
     background-color: #d3d3d3;
     border-bottom: 1px solid #000;
@@ -173,6 +172,10 @@ footer a:hover {
 
 .text-space {
     padding-right: 5px;
+}
+
+.information-background {
+    margin-bottom: 10px;
 }
 
 #username {

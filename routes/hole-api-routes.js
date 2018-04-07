@@ -332,11 +332,14 @@ db.Hole.findAndCountAll({}).then(function(result) {
 module.exports = function(app) {
     app.get("/courses/:id/holes", function(req,res) {
         // Retrieving all database records
-        db.Hole.findAll({}).then(function(dbHole) {
+        db.Hole.findAll({
+            where: {
+                courseId: req.params.id
+            }
+        }).then(function(dbHole) {
             // Passing handlebars the data from findAll
             var infoObj = {
                 infoList: dbHole,
-
                 // Renders the courses partial
                 partial: function() {
                     return "courses-info";
