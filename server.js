@@ -2,6 +2,8 @@
 var express = require("express");
 // Requiring Body-parser
 var bodyParser = require("body-parser");
+// Requiring hbs
+var hbs = require('hbs');
 
 // Setting the port number
 var PORT = process.env.PORT || 8080;
@@ -26,6 +28,8 @@ var exphbs = require("express-handlebars");
 // Setting the engine and layout for handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
+// Exposes the registerHelper and registerPartial method from handlebars
+hbs.registerPartials(__dirname + '/views/partials')
 
 // Import routes and give the server access to them
 require("./routes/html-routes")(app);

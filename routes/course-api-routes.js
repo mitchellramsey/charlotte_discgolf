@@ -36,10 +36,15 @@ module.exports = function(app) {
         db.Course.findAll({}).then(function(dbCourse) {
             // Passing handlebars the data from findAll
             var coursesObj = {
-                coursesList: dbCourse
+                coursesList: dbCourse,
+
+                // Renders the courses partial
+                partial: function() {
+                    return "courses-page";
+                }
             };
             // Rendering courses and passing the data to be parsed on the handlebars page
-            res.render("courses", coursesObj);
+            res.render("index", coursesObj);
         });
     });
 };
