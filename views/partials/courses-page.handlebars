@@ -9,8 +9,8 @@
             {{!-- Looping over the database entries with handlebars --}}
             <p class="column-title text-center">Course Name</p>
             {{#each coursesList}}
-                <ul class="text-center" id="course-list">
-                    {{name}}
+                <ul class="text-center" class="course-list">
+                    <a href="/courses/{{this.id}}/holes"><button data-toggle="collapse"><li data-id="{{this.id}}">{{name}}</li></button></a>
                 </ul>
             {{/each}}
         </div>
@@ -19,25 +19,25 @@
             <p class="column-title">Address</p>
                 {{#each coursesList}}
                     <ul class="text-left">
-                        {{address}}
+                        <li>{{address}}</li>
                     </ul>
                 {{/each}}
         </div>
         <div class="col-md-3">
             {{!-- Looping over the database entries with handlebars --}}
-            <p class="column-title text-center" id="holes">Holes</p>
+            <p class="column-title text-center" class="holes">Holes</p>
                 {{#each coursesList}}
                     <ul class="text-center">
-                        {{holes}}
+                        <li>{{holes}}</li>
                     </ul>
                 {{/each}}
         </div>
         <div class="col-md-3">
             {{!-- Looping over the database entries with handlebars --}}
-            <p class="column-title text-center" id="rating">Rating</p>
+            <p class="column-title text-center" class="rating">Rating</p>
                 {{#each coursesList}}
                     <ul class="text-center">
-                        {{rating}}
+                        <li>{{rating}}</li>
                     </ul>
                 {{/each}}
         </div>

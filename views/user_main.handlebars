@@ -10,15 +10,17 @@
                   <tr>
                      <th scope="col">Name</th>
                      <th scope="col">Recent Rounds</th>
-                     <th scope="col"><button type="button" class="btn btn-primary">Play New Rounds</button></th>
+                     <th scope="col"><button type="button" class="btn btn-primary">Play New Round</button></th>
                   </tr>
                </thead>
                <tbody>
                   <tr>
-                     <td>    
-                        {{#each usersList}}
-                        {{user_name}}
-                        {{/each}}
+                     <td>
+                        {{#if usersList}}
+                        <h1>{{this.user_name}}</h1>
+                        {{else}}
+                        <h1>Unknown User</h1>
+                        {{/if}}
                      </td>
                   </tr>
                </tbody>
