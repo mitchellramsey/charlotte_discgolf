@@ -1,21 +1,21 @@
 {
   "development": {
     "username": "root",
-    "password": "Boarder@14",
+    "password": "root",
     "database": "disc_golf_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "Boarder@14",
+    "password": "root",
     "database": "disc_golf_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "Boarder@14",
+    "password": "root",
     "database": "disc_golf_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

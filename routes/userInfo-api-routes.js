@@ -1,14 +1,15 @@
 var db = require("../models");
-
+var userInfo = require("../models").UserInfo;
 module.exports = function(app) {
-  app.post("new/", function (req, res) {
-    db.UserInfo.create({
+  app.post("/new", function (req, res) {
+    console.log(req);
+    userInfo.create({
       name: req.body.name,
-      email: req.body.email,
       user_name: req.body.username,
+      email: req.body.email,
       password: req.body.psw
     })
-    res.redirect("/homepage");
+    // res.redirect("/homepage");
   })
 };
 
@@ -22,7 +23,7 @@ module.exports = function(app) {
               usersList: dbUserInfo
           };
           // Rendering courses and passing the data to be parsed on the handlebars page
-          res.render("user_main", userObj);
+          res.json(userObj);
       });
   });
 };
