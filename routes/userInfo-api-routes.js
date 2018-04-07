@@ -15,13 +15,21 @@ module.exports = function(app) {
   });
 
 
-  app.get("/user", function(req,res) {
+  app.get("/homepage/:user_name", function(req,res) {
       // Retrieving all database records
-      db.UserInfo.findAll({}).then(function(dbUserInfo) {
+      db.UserInfo.findOne({
+        where: {
+          user_name: req.params.user_name
+        }
+      }).then(function(dbUserInfo) {
           // Passing handlebars the data from findAll
           var userObj = {
-              usersList: dbUserInfo
+              usersList: dbUserInfo,
+              partial: function() {
+                return "homepage";
+              }
           };
+          console.log(userObj);
           // Rendering courses and passing the data to be parsed on the handlebars page
           res.render("index", userObj);
       });
