@@ -1,3 +1,5 @@
+var bcrypt = require("bcrypt");
+
 module.exports = function(sequelize, DataTypes) {
     var UserInfo = sequelize.define("UserInfo", {
         name : {
@@ -28,6 +30,15 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [8,140]
+            }
+        }
+    }, {
+        instanceMethods: {
+            generateHash(password) {
+                return bcrypt.hash(password, bcrypt.genSaltSync(8));
+            },
+            validPassword(password) {
+                return bcrypt.compare(password, this.password);
             }
         }
     });
