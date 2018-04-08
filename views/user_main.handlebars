@@ -16,12 +16,9 @@
                <tbody>
                   <tr>
                      <td>
-                        {{#if usersInfos}}
-                        <h1>{{this.id}}{{name}}</h1>
-                        <h1>{{this.id}}{{name}}</h1>
-                        {{else}}
-                        <h1>Unknown User</h1>
-                        {{/if}}
+                        {{#if usersList.user_name}}
+                        {{usersList.user_name}}
+                        {{/if}} 
                      </td>
                   </tr>
                </tbody>

@@ -40,7 +40,7 @@ module.exports = function(app) {
     db.UserInfo.findAll({}).then(function(dbUserInfo) {
         // Passing handlebars the data from findAll
         var UserInfoObj = {
-            usersInfos: dbUserInfo
+          usersList: dbUserInfo
         };
         // Rendering users_rounds and passing the data to be parsed on the handlebars page
         res.render("user_main", UserInfoObj);
