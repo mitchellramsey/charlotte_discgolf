@@ -13,9 +13,9 @@ db.UserInfo.findOne({
 })
   .then(function (result) {
     console.log(result.id);
-    if(result){
+    if(result.id){
       // console.log("Access Granted!!")
-      res.redirect("/homepage/" + result.user_name);
+      res.redirect("/homepage/:user_name" + result.user_name);
     } else {
       // console.log("Username or Password was incorrect.")
     }
