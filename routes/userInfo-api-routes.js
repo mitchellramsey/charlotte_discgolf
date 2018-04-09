@@ -39,12 +39,16 @@ module.exports = function(app) {
     // Retrieving all database records
     db.UserInfo.findAll({}).then(function(dbUserInfo) {
         // Passing handlebars the data from findAll
-        var UserInfoObj = {
-          usersList: dbUserInfo
-        };
-        // Rendering users_rounds and passing the data to be parsed on the handlebars page
-        res.render("user_main", UserInfoObj);
-    });
+        var userObj = {
+          usersList: dbUserInfo,
+          partial: function() {
+            return "user_main";
+          }
+      };
+      console.log(userObj);
+      // Rendering courses and passing the data to be parsed on the handlebars page
+      res.render("user_main", userObj);
+  });
 });
 };
 

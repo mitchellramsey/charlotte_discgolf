@@ -6,9 +6,13 @@ module.exports = function(app) {
         db.UserRound.findAll({}).then(function(dbUserRound) {
             // Passing handlebars the data from findAll
             var userRoundObj = {
-                usersRounds: dbUserRound
+                usersRounds: dbUserRound,
+                partial: function() {
+                  return "user_round";
+                }
             };
-            // Rendering users_rounds and passing the data to be parsed on the handlebars page
+            console.log(userRoundObj);
+            // Rendering courses and passing the data to be parsed on the handlebars page
             res.render("user_round", userRoundObj);
         });
     });
