@@ -34,5 +34,21 @@ module.exports = function(app) {
           res.render("index", userObj);
       });
   });
+
+  app.get("/user", function(req,res) {
+    // Retrieving all database records
+    db.UserInfo.findAll({}).then(function(dbUserInfo) {
+        // Passing handlebars the data from findAll
+        var userObj = {
+          usersList: dbUserInfo,
+          partial: function() {
+            return "user_main";
+          }
+      };
+      console.log(userObj);
+      // Rendering courses and passing the data to be parsed on the handlebars page
+      res.render("user_main", userObj);
+  });
+});
 };
 
