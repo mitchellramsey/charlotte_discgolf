@@ -1,5 +1,7 @@
 // Requiring Express
 var express = require("express");
+// Requiring the Passport-setup file
+var passportSetup = require("./config/passport-setup");
 // Requiring Body-parser
 var bodyParser = require("body-parser");
 // Requiring hbs
@@ -33,6 +35,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 // require('handlebars-form-helpers').register(hbs.handlebars);
 
 // Import routes and give the server access to them
+require("./routes/auth-routes.js")(app);
 require("./routes/html-routes")(app);
 require("./routes/course-api-routes.js")(app);
 require("./routes/hole-api-routes.js")(app);
