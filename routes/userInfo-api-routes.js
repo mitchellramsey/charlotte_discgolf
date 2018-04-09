@@ -11,7 +11,7 @@ module.exports = function(app) {
       password: req.body.password
     })
     // Redirecting to homepage after creation
-    res.redirect("/homepage");
+    res.redirect("/homepage/:user_name");
   });
 
 
