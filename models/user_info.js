@@ -1,35 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var UserInfo = sequelize.define("UserInfo", {
-        name : {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [2,140]
-            }
-        },
-
-        user_name : {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [2, 140]
-            }
-        },
-        email : {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                isEmail: true,
-                len: [8,140]
-            }
-        },
-        password : {
-            type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [8,140]
-            }
-        }
+        username: DataTypes.STRING,
+        googleId: DataTypes.STRING
     });
 
     UserInfo.associate = function(models) {

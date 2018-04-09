@@ -10,8 +10,12 @@
       </li>
     </ul>
     <span class="navbar-text">
-        {{#if usersList.user_name}}
-            <p class="text-right courses-login">Welcome, <a href="/userprofile"><span class="navbar-text">{{usersList.user_name}}</span></a></p>
+        {{#if personList}}
+            <p class="text-right courses-login">Welcome, <a href="/userprofile"><span class="navbar-text">
+              {{#each personList}}
+                {{req.user.username}}
+              {{/each}}
+            </span></a></p>
         {{/if}} 
     </span>
   </div>

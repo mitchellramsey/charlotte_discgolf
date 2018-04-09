@@ -1,4 +1,6 @@
 
+var passport = require("passport");
+
 module.exports = function (app) {
     // Auth Sign-in route
     app.get("/", function (req, res) {
@@ -20,9 +22,15 @@ module.exports = function (app) {
     // Using Passport use the Google stategy
     // To redirect to the consent screen
     app.get("/auth/google", passport.authenticate("google", {
-        scope: ["profile",
-                "email",
-                "password",
-                "username"]    
+        // Looking for profile contents
+        scope: ["profile"]    
     }));
+
+    // Callback that Passport uses to exchange the URL params
+    // For the users information
+    app.get("/auth/google/redirect", passport.authenticate("google"), function (req, res) {
+        // Redirect after log-in
+        res.redirect("/userprofile");
+    });
+    
 };
