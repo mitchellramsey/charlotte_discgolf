@@ -1,3 +1,4 @@
+var userLoggedIn = false;
 
 var passport = require("passport");
 
@@ -15,7 +16,9 @@ module.exports = function (app) {
     // Auth Log-out
     app.get("/auth/logout", function (req, res) {
         // Handle with passport
-        res.send("Logging out");
+        req.logout();
+        // Redirecting to homepage after logging out
+        res.redirect("/");
     });
 
     //  Auth with Google

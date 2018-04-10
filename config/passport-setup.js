@@ -27,11 +27,11 @@ module.exports = function (passport, UserInfo) {
     // Configuring and using the Google Strategy
     passport.use(
         new GoogleStrategy({
-            // options for the strategy
-            callbackURL: "/auth/google/redirect",
             // Client ID and secret
             clientID: keys.google.clientID,
-            clientSecret: keys.google.clientSecret
+            clientSecret: keys.google.clientSecret,
+            // options for the strategy
+            callbackURL: "/auth/google/redirect",
         }, (accessToken, refreshToken, profile, done) => {
 
             // If user has a Google account already

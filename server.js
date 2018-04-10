@@ -1,41 +1,42 @@
 // Requiring Express
 var express = require("express");
+// Requiring Cookie Session
+var cookieSession = require("cookie-session");
+// Requiring Passport
+var passport = require("passport");
+// Requiring the Passport-setup file
+var passportSetup = require("./config/passport-setup")(app);
 // Requiring Body-parser
 var bodyParser = require("body-parser");
 // Requiring hbs
 var hbs = require("hbs");
 // Requiring keys
 var keys = require("./config/keys");
-// Requiring Cookie Session
-var cookieSession = require("cookie-session");
-// Requiring Passport
-var passport = require("passport");
 
 // Setting the port number
 var PORT = process.env.PORT || 8080;
 
-// Requiring the models folder for syncing
-var db = require("./models");
-
 // Intializing Express
 var app = express();
-// app.use(methodOverride("_method"));
-// Serving up the public folder to give static content
-app.use(express.static("public"));
+
+// Requiring the models folder for syncing
+var db = require("./models");
 
 // Setting cookieSession
 app.use(cookieSession({
   // Max time before expiration
   // One day
-  maxAge: 24 * 60 * 60 * 1000,
+  maxAge: 24 * 60 * 60 * 10000,
   // Encrypting keys
   keys: [keys.session.cookieKey]
 }));
-
 // Initializing passport
 app.use(passport.initialize());
 // Controlling log-ins
 app.use(passport.session());
+
+// Serving up the public folder to give static content
+app.use(express.static("public"));
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false}));
@@ -43,8 +44,6 @@ app.use(bodyParser.urlencoded({ extended: false}));
 // Parse application/JSON
 app.use(bodyParser.json());
 
-// Requiring the Passport-setup file
-var passportSetup = require("./config/passport-setup")(app);
 // Set Handlebars
 var exphbs = require("express-handlebars");
 // Setting the engine and layout for handlebars
