@@ -16,21 +16,6 @@ module.exports = function (app) {
     res.render("index", personObj);
   });
 
-  // User Registration route
-  app.get("/registration", function (req, res) {
-    // Handlebars object for the user-registration form
-    var personObj = {
-      users: req,
-
-      // Renders the courses partial
-      partial: function () {
-        return "registration-page";
-      }
-    };
-    // Rending user_main
-    res.render("index", personObj);
-  });
-
   // Checking to see if the user is logged in or not
   var authCheck = function (req, res, next) {
     // If user is not logged in..

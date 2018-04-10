@@ -37,6 +37,7 @@ module.exports = function(app) {
             // Passing handlebars the data from findAll
             var coursesObj = {
                 coursesList: dbCourse,
+                users: req,
 
                 // Renders the courses partial
                 partial: function() {
