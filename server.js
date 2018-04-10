@@ -1,41 +1,42 @@
 // Requiring Express
 var express = require("express");
+// Requiring Cookie Session
+var cookieSession = require("cookie-session");
+// Requiring Passport
+var passport = require("passport");
+// Requiring the Passport-setup file
+var passportSetup = require("./config/passport-setup")(app);
 // Requiring Body-parser
 var bodyParser = require("body-parser");
 // Requiring hbs
 var hbs = require("hbs");
 // Requiring keys
 var keys = require("./config/keys");
-// Requiring Cookie Session
-var cookieSession = require("cookie-session");
-// Requiring Passport
-var passport = require("passport");
 
 // Setting the port number
 var PORT = process.env.PORT || 8080;
 
-// Requiring the models folder for syncing
-var db = require("./models");
-
 // Intializing Express
 var app = express();
 
-// Serving up the public folder to give static content
-app.use(express.static("public"));
+// Requiring the models folder for syncing
+var db = require("./models");
 
 // Setting cookieSession
 app.use(cookieSession({
   // Max time before expiration
   // One day
-  maxAge: 24 * 60 * 60 * 1000,
+  maxAge: 24 * 60 * 60 * 10000,
   // Encrypting keys
   keys: [keys.session.cookieKey]
 }));
-
 // Initializing passport
 app.use(passport.initialize());
 // Controlling log-ins
 app.use(passport.session());
+
+// Serving up the public folder to give static content
+app.use(express.static("public"));
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,8 +44,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Parse application/JSON
 app.use(bodyParser.json());
 
-// Requiring the Passport-setup file
-var passportSetup = require("./config/passport-setup")(app);
 // Set Handlebars
 var exphbs = require("express-handlebars");
 // Setting the engine and layout for handlebars
@@ -63,7 +62,7 @@ require("./routes/userRound-api-routes.js")(app);
 require("./routes/signin.js")(app);
 
 // Syncing the database
-db.sequelize.sync({force:trueq}).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
