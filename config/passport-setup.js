@@ -52,8 +52,10 @@ module.exports = function (passport, UserInfo) {
                         // Google ID
                         googleId: profile.id
                     }).then(function (req, res) {
-                        console.log(res);
-                        done(null, UserInfo)
+                        // console.log("I made it to this point");
+                        // console.log(res);
+                        // console.log(req);
+                        done(null, req.UserInfo)
                     });
                 }
             });

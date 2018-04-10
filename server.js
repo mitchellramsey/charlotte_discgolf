@@ -39,7 +39,7 @@ app.use(passport.session());
 app.use(express.static("public"));
 
 // Parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: false}));
 
 // Parse application/JSON
 app.use(bodyParser.json());

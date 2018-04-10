@@ -19,7 +19,7 @@ db.Course.findAndCountAll({}).then(function(result) {
             //There has been 55 reviews
         });
         db.Course.create({
-            name: "Hornets Next Park",
+            name: "Hornets Nest Park",
             address: "6301 Beatties Ford Rd, Charlotte, NC 28216",
             holes: 18,
             rating: 4.25
@@ -44,6 +44,7 @@ module.exports = function(app) {
                     return "courses-page";
                 }
             };
+            console.log(coursesObj);
             // Rendering courses and passing the data to be parsed on the handlebars page
             res.render("index", coursesObj);
         });
