@@ -51,7 +51,7 @@ module.exports = function (app) {
           console.log(dbUserRounds);
           console.log("Look Above");
             var userMainInfo = {
-              users: req.user.dataValues.username,
+              users: req,
               userId : id,
               userRoundsObj: dbUserRounds,
               partial: function() {
