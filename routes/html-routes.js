@@ -1,3 +1,4 @@
+var db = require("../models");
 
 module.exports = function(app) {
 
@@ -37,7 +38,38 @@ module.exports = function(app) {
   // User profile route
   app.get("/userprofile", authCheck, function(req, res) {
     // Temp HTML
-    res.send("This is your profile, " + req.user.username);
+    var user = req.user.dataValues.username;
+    db.UserInfo.findOne({
+      where: {
+        username: user
+      }
+    }).then(function(dbUserInfo) {
+      var id = dbUserInfo.id;
+      console.log("Id: " + id);
+      db.UserRound.findAll({
+        where: {
+          UserInfoId: id
+
+        },
+        include: [db.Course]
+        
+      }).then(function(dbUserRounds) {
+          console.log(dbUserRounds);
+          console.log("Look Above");
+            var userMainInfo = {
+              users: req.user.dataValues.username,
+              userId : id,
+              userRoundsObj: dbUserRounds,
+              partial: function() {
+                return "user_main";
+              }
+            }
+            res.render("index", userMainInfo);
+
+        
+      });
+    });
+
   });
 };
 
