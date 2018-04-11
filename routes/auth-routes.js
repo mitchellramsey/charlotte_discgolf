@@ -1,4 +1,3 @@
-var userLoggedIn = false;
 
 var passport = require("passport");
 
@@ -30,14 +29,17 @@ module.exports = function (app) {
         // Google prompt to choose which email/account
         // Doing this so upon log out, youre not automatically using the same email address again
         // Incase user would like to switch
-        prompt : "select_account"
+        prompt: "select_account"
     }));
 
     // Callback that Passport uses to exchange the URL params
     // For the users information
-    app.get("/auth/google/redirect", passport.authenticate("google"), function (req, res) {
-        // Redirect after log-in
-        res.redirect("/userprofile");
-    });
-    
+    app.get('/auth/google/redirect',
+        passport.authenticate('google', {
+            // On sucess redirect to the user-profile
+            successRedirect: '/userprofile',
+            // Else return to the log-in screen
+            failureRedirect: '/'
+        }
+    ));
 };

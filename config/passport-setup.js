@@ -32,33 +32,36 @@ module.exports = function (passport, UserInfo) {
             clientSecret: keys.google.clientSecret,
             // options for the strategy
             callbackURL: "/auth/google/redirect",
-        }, (accessToken, refreshToken, profile, done) => {
+        }, 
+        (accessToken, refreshToken, profile, done) => {
 
-            // If user has a Google account already
-            db.UserInfo.findOne({
-                where: {
-                    googleId: profile.id
-                }
-            }).then(function(googleId) {
-                // If Google ID exists..
-                if (googleId) {
-                    console.log("You already have an account:" + profile.displayName);
-                    done(null, googleId);
-                } else {
-                    // Creating a new user and putting it into the User-Info table
-                    db.UserInfo.create({
-                        // Google display name
-                        username: profile.displayName,
-                        // Google ID
+            process.nextTick(function() { 
+                // Searching for an existing googleId
+                db.UserInfo.findOne({
+                    where: {
                         googleId: profile.id
-                    }).then(function (req, res) {
-                        // console.log("I made it to this point");
-                        // console.log(res);
-                        // console.log(req);
-                        done(null, req.UserInfo)
-                    });
-                }
-            });
+                    }
+                    }).then(function(googleId) {
+                    // If Google ID exists..
+                    if (googleId) {
+                        console.log("You already have an account:" + profile.displayName);
+                        done(null, googleId);
+                    } else {
+                        // Creating a new user and putting it into the User-Info table
+                        db.UserInfo.create({
+                            // Google display name
+                            username: profile.displayName,
+                            // Google ID
+                            googleId: profile.id
+                        }).then(function (req, res) {
+                            // console.log("I made it to this point");
+                            // console.log(res);
+                            // console.log(req);
+                            done(null, req.UserInfo)
+                        });
+                    }
+                });
+            })
         })
     )
 };
