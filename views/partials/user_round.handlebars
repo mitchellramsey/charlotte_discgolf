@@ -1,26 +1,53 @@
-<div class="container">
-   <h1 class="display-4 text-center course-header">Rounds</h1>
-</div>
-<div class="container course-main">
-   <div class="row">
-      <div class="col-md-12">
-         <div class="row text-center">
-            <form>
-               Input Rounds<br>
-               <input class="col-md-6" type="number" name="input_rounds"><br>
-            </form>
-            <div class="col-md-3">
-               <h2>User Rounds</h2>
-            </div>
-         </div>
-         {{#each usersRounds}}
-         <div class="col-md-8">
-            <ul class="text-center">
-               <li>{{score}}</li>
-            </ul>
+
+   <div class="container">
+      <h1 class="display-4 text-center course-header">Play a Round</h1>
+   </div>
+   <div class="container course-main">
+      <div class="row">
+         <div class="col-md-12 text-center">                
+            <hr>
+            <h3>Select Course</h3>
+            <hr>
+            
          </div>
       </div>
-      {{/each}}
+      
+      <div class="row">
+          <div class="col-md-3 text-center">
+              <h4>Hole Number</h4>
+          </div>
+          <div class="col-md-3 text-center">
+              <h4>Par</h4>
+          </div>
+          <div class="col-md-3 text-center">
+              <h4>Distance</h4>
+          </div>
+          <div class="col-md-3 text-center">
+              <h4>Score</h4>
+          </div>
+      </div>
+                {{#each userRoundsObj}}
+                    <div class="row row-border">
+                        <div class="col-md-3">
+                            <ul class="text-center hole-info">
+                                <li>{{this.Course.id}}.</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="text-center hole-info">
+                                <li>{{this.Hole.par}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="text-center hole-info">
+                                <li>{{this.Hole.distance}}</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-3">
+                            <ul class="text-center hole-info">
+                                <li>{{this.score}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {{/each}}
    </div>
-</div>
-</div>
