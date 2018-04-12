@@ -1,0 +1,26 @@
+<div class="container">
+   <h1 class="display-4 text-center course-header">Rounds</h1>
+</div>
+<div class="container course-main">
+   <div class="row">
+      <div class="col-md-12">
+         <div class="row text-center">
+            <form>
+               Input Rounds<br>
+               <input class="col-md-6" type="number" name="input_rounds"><br>
+            </form>
+            <div class="col-md-3">
+               <h2>User Rounds</h2>
+            </div>
+         </div>
+         {{#each usersRounds}}
+         <div class="col-md-8">
+            <ul class="text-center">
+               <li>{{score}}</li>
+            </ul>
+         </div>
+      </div>
+      {{/each}}
+   </div>
+</div>
+</div>

@@ -1,0 +1,46 @@
+
+   <div class="container">
+      <h1 class="display-4 text-center course-header">Profile</h1>
+   </div>
+   <div class="container course-main">
+      <div class="row">
+         <div class="col-md-12 text-center">                
+            <hr>
+            <h3>Round History</h3>
+            <hr>
+         </div>
+      </div>
+      
+      <div class="row">
+          <div class="col-md-4 text-center">
+              <h4>Course</h4>
+          </div>
+          <div class="col-md-4 text-center">
+              <h4>Tosses</h4>
+          </div>
+          <div class="col-md-4 text-center">
+              <h4>Score</h4>
+          </div>
+      </div>
+                {{#each userRoundsObj}}
+                    <div class="row row-border">
+                        <div class="col-md-4">
+                            <ul class="text-center hole-info">
+                                <li>{{this.Course.name}}.</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <ul class="text-center hole-info">
+                                <li>{{this.tosses}}</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <ul class="text-center hole-info">
+                                <li>{{this.score}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                {{/each}}
+   </div>
