@@ -77,7 +77,7 @@ module.exports = function (app) {
           return "user_round";
         }
       }
-
+      
       res.render("index", playRoundObj);
     }); 
     
