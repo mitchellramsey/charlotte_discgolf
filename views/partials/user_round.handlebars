@@ -1,26 +1,89 @@
-<div class="container">
-   <h1 class="display-4 text-center course-header">Rounds</h1>
-</div>
-<div class="container course-main">
-   <div class="row">
-      <div class="col-md-12">
-         <div class="row text-center">
-            <form>
-               Input Rounds<br>
-               <input class="col-md-6" type="number" name="input_rounds"><br>
-            </form>
-            <div class="col-md-3">
-               <h2>User Rounds</h2>
-            </div>
-         </div>
-         {{#each usersRounds}}
-         <div class="col-md-8">
-            <ul class="text-center">
-               <li>{{score}}</li>
-            </ul>
+
+   <div class="container">
+      <h1 class="display-4 text-center course-header">Play a Round</h1>
+   </div>
+   <div class="container course-main">
+      <div class="row">
+         <div class="col-md-12 text-center">                
+            <hr>
+            <h3>Select Course</h3>
+            <hr>
+            <select class='courseSelect'>
+                <option value="0">Select Course</option>
+                {{#each courseInfo}}
+                <option value={{id}} >{{name}}</option>
+                {{/each}}
+            </select>
+            <button type="button" id="viewHoles">View Holes</button>
+            <hr>
          </div>
       </div>
-      {{/each}}
+      
+      <div class="row">
+          <div class="col-md-3 text-center" >
+              <h4>Hole Number</h4>
+              <div id="holeNumber"></div>
+          </div>
+          <div class="col-md-3 text-center" >
+              <h4>Par</h4>
+              <div id="par"></div>
+          </div>
+          <div class="col-md-3 text-center" >
+              <h4>Distance</h4>
+              <div id="distance"></div>
+          </div>
+          <div class="col-md-3 text-center" >
+              <h4>Tosses</h4>
+              <div id="tosses"></div>
+          </div>
+      </div>
+               
    </div>
-</div>
-</div>
+
+   <script>
+
+       
+       $("#viewHoles").on("click", function() {
+           var courseId = $(".courseSelect").val();
+           console.log(courseId);
+           var course = {
+               idCourse: courseId
+           }
+           $.post("/user_round", course).then(function(results) {
+               console.log(results);
+               var holeData = results.Holes;
+               //hole number append
+               $("#holeNumber").empty();
+               var holeNumberList = $("<ul>");
+               holeData.forEach(function(hole) {
+                   var holeNumber = $("<li>");
+                   holeNumber.text(hole.hole_number);
+                   holeNumberList.append(holeNumber);                    
+               });
+               $("#holeNumber").append(holeNumberList);
+               
+
+               //par number append
+               $("#par").empty();
+               var parValueList = $("<ul>");
+               holeData.forEach(function(hole) {
+                   var parValue = $("<li>");
+                   parValue.text(hole.par);
+                   parValueList.append(parValue);                    
+               });
+               $("#par").append(parValueList);
+
+               //distance value append
+               $("#distance").empty();
+               var distanceValueList = $("<ul>");
+               holeData.forEach(function(hole) {
+                   var distanceValue = $("<li>");
+                   distanceValue.text(hole.distance);
+                   distanceValueList.append(distanceValue);                    
+               });
+               $("#distance").append(distanceValueList);
+           });
+
+
+       })
+   </script>

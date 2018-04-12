@@ -46,7 +46,7 @@ module.exports = function(app) {
             };
             console.log(coursesObj);
             // Rendering courses and passing the data to be parsed on the handlebars page
-            res.render("index", coursesObj);
+            res.render("index", coursesObj[0]);
         });
     });
 };

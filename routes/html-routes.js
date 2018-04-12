@@ -59,10 +59,28 @@ module.exports = function (app) {
               }
             }
             res.render("index", userMainInfo);
-
-        
       });
     });
+
+  });
+
+  app.get("/user_round", authCheck, function(req,res) {
+
+    db.Course.findAll({
+      include: [db.Hole]
+    }).then(function(dbCourseInfo) {
+    
+      var playRoundObj = {
+        courseInfo: dbCourseInfo,
+        users: req,
+        partial: function() {
+          return "user_round";
+        }
+      }
+      
+      res.render("index", playRoundObj);
+    }); 
+    
 
   });
 };
