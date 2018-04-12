@@ -1,37 +1,24 @@
-
-{{!-- Sign In page --}}
+ {{!-- Sign In page --}}
 <div class="container" id="sign-in-page">
   <div class="row h-100 justify-content-center align-items-center">
     <div class="col-md-8 text-center">
-      
-      {{!-- <form id="signin" name="signin" method="post" action="/api/models/user_info/">
-        <label for="email">Email Address</label>
-        <input class="text" name="email" type="text" />
-        <label for="password">Password</label>
-        <input name="password" type="password" />
-        <input class="btn" id="sign-in" type="submit" value="Sign In" />
-      </form> --}}
-
-      {{> userLoggedOut}}
+    
+     {{> userLoggedOut}}
 
       <div class="row text-center">
         <div class="col-md-12">
           <h3>
-            <button class="loginBtn loginBtn--facebook">
-              <a href="/auth/facebook">Login with Facebook</a>
+
+            <button class="btn btn-block btn-social btn-github">
+              <span class="fab fa-github-square"></span><a id="gitlink" href="/auth/github">Sign in with GitHub</a>
             </button>
 
             <button class="loginBtn loginBtn--google">
               <a href="/auth/google">Login with Google</a>
             </button>
-        </h3>
+          </h3>
         </div>
       </div>
-
-      {{!-- <div>
-        <p>If you are not yet a member please click the Registration link below.</p>
-        <a href="registration"><strong>Register</strong></a>
-      </div> --}}
     </div>
   </div>
 </div>
