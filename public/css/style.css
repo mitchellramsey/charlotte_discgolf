@@ -97,6 +97,10 @@ footer a:hover {
     border-color: none;
 }
 
+.btn-github {
+    width: 190px;
+}
+
 .btn-primary,
 .btn-primary:hover {
   background-color: #000;
