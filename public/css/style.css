@@ -156,6 +156,10 @@ footer a:hover {
     color: #d3d3d3;
 }
 
+.destination {
+    cursor: pointer;
+}
+
 .background-img {
     height: 475px;
 }
