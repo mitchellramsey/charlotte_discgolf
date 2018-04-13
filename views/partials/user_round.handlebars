@@ -1,12 +1,13 @@
 
    <div class="container">
       <h1 class="display-4 text-center course-header">Play a Round</h1>
+      
+      <h2 class="text-center course-header">Welcome, <span id="user" data-id={{users.user.id}}>{{users.user.username}}</span></h2>
+      
    </div>
    <div class="container course-main">
       <div class="row">
          <div class="col-md-12 text-center">                
-            <hr>
-            <h3>Select Course</h3>
             <hr>
             <select class='courseSelect'>
                 <option value="0">Select Course</option>
@@ -14,7 +15,12 @@
                 <option value={{id}} >{{name}}</option>
                 {{/each}}
             </select>
-            <button type="button" id="viewHoles">View Holes</button>
+            <button class="btn btn-success" type="button" id="viewHoles">Play Round</button>
+            
+            <hr>
+            <h3>Total Par: <span id="totalPar"></span></h3>
+            <h3>Total Distance: <span id="totalDistance"></span></h3>
+            
             <hr>
          </div>
       </div>
@@ -35,6 +41,9 @@
           <div class="col-md-3 text-center" >
               <h4>Tosses</h4>
               <div id="tosses"></div>
+              {{!-- <button class="btn btn-success" type="submit" id="endRound" style:"text-align:center">End Game</button> --}}
+              
+              
           </div>
       </div>
                
@@ -56,7 +65,8 @@
                $("#holeNumber").empty();
                var holeNumberList = $("<ul>");
                holeData.forEach(function(hole) {
-                   var holeNumber = $("<li>");
+                   var holeNumber = $("<li>")
+                                    .attr("id", "list-item");
                    holeNumber.text(hole.hole_number);
                    holeNumberList.append(holeNumber);                    
                });
@@ -67,7 +77,8 @@
                $("#par").empty();
                var parValueList = $("<ul>");
                holeData.forEach(function(hole) {
-                   var parValue = $("<li>");
+                   var parValue = $("<li>")
+                                  .attr("id", "list-item");
                    parValue.text(hole.par);
                    parValueList.append(parValue);                    
                });
@@ -77,12 +88,74 @@
                $("#distance").empty();
                var distanceValueList = $("<ul>");
                holeData.forEach(function(hole) {
-                   var distanceValue = $("<li>");
+                   var distanceValue = $("<li>")
+                                        .attr("id", "list-item");
                    distanceValue.text(hole.distance);
                    distanceValueList.append(distanceValue);                    
                });
                $("#distance").append(distanceValueList);
+
+               //score input fields
+               $("#tosses").empty();
+               var tossesInputList = $("<ul>");
+               holeData.forEach(function(hole) {
+                   var scoreInputListItem = $("<li>")
+                                            .attr("id", "list-tosses-item");
+                   var newScoreInput = $("<input>")
+                                       .attr("type", "number")
+                                       .attr("class", "form-control")
+                                       .attr("id", "hole-" + hole.hole_number)
+                                       .attr("style", "width: 75px; margin-left: 33px");
+                    scoreInputListItem.append(newScoreInput);
+                    tossesInputList.append(scoreInputListItem);
+               });
+               $("#tosses").append(tossesInputList);
+
+               //create end game button
+               //<button class="btn btn-success" type="submit" id="endRound" style:"text-align:center">End Game</button>
+               var endGameBtn = $("<button>")
+                                .addClass("btn btn-success")
+                                .attr("type", "button")
+                                .attr("id", "endRound")
+                                .attr("style", "text-align:center")
+                                .text("End Game");
+               $("#tosses").append(endGameBtn);
+
+               //post total par and total distance
+               
+               var totalPar = 0;
+               var totalDistance = 0;
+               holeData.forEach(function(hole) {
+                   totalPar += hole.par;
+                   totalDistance += hole.distance;
+               });
+               $("#totalPar").text(totalPar);
+               $("#totalDistance").text(totalDistance);
+
+               $("#endRound").on("click", function() {
+                  
+                    var userTosses = 0;
+                    holeData.forEach(function(hole) {
+                        userTosses += parseInt($("#hole-" + hole.hole_number).val());
+                    });
+                    var userId = $("#user").attr("data-id");
+                    var score = userTosses - totalPar;
+                    var userRoundData = {
+                        dbUserId: userId,
+                        dbCourseId: courseId,
+                        dbTosses: userTosses,
+                        dbScore: score
+                    };
+                    $.post("api/userRounds", userRoundData).then(function(results) {
+                        console.log(results);
+                    })
+               });
+           
            });
+
+           
+
+
 
 
        })

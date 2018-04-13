@@ -65,7 +65,7 @@ module.exports = function (app) {
   });
 
   app.get("/user_round", authCheck, function(req,res) {
-
+    // console.log(req.user);
     db.Course.findAll({
       include: [db.Hole]
     }).then(function(dbCourseInfo) {
@@ -77,7 +77,7 @@ module.exports = function (app) {
           return "user_round";
         }
       }
-      
+      // console.log(playRoundObj.users);
       res.render("index", playRoundObj);
     }); 
     

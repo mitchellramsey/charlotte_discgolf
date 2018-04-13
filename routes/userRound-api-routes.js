@@ -37,5 +37,20 @@ module.exports = function(app) {
             // res.render("user_round", userRoundObj);
         
     });
+
+    app.post("/api/userRounds", function(req,res) {
+        console.log(req);
+        var round = req.body;
+        db.UserRound.create({
+            tosses: round.dbTosses,
+            score: round.dbScore,
+            CourseId: round.dbCourseId,
+            UserInfoId: round.dbUserId
+        }).then(function(result) {
+            location.reload();
+        })
+    })
+
+    
   };
   
