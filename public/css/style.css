@@ -33,7 +33,6 @@ footer a:hover {
     height: 270px;
     background-size: cover;
     background-position: center;
-    border: 1px solid #000;
 }
 
 #banner > img {
@@ -42,7 +41,11 @@ footer a:hover {
     background-size: cover;
     background-position: center;
     border: 1px solid #000;
+<<<<<<< HEAD
     top: 95px;
+=======
+    top: 98px;
+>>>>>>> 0853af07d3b1bc554f9bdb261e768c9213e9fbc8
     left: 0px;
     position: absolute;
     color: transparent;
