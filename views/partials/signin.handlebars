@@ -1,24 +1,19 @@
  {{!-- Sign In page --}}
-<div class="container" id="sign-in-page">
-  <div class="row h-100 justify-content-center align-items-center">
-    <div class="col-md-8 text-center">
-    
-     {{> userLoggedOut}}
+  <div id="home-background">
+    <div class="container" id="sign-in-page">
+      <div class="row">   
+        <div class="col-md-12 button-div">
+          <h3 id="sign-in-text"class="text-center">Please login to continue</h3>
+          <button class="btn btn-block btn-social btn-github mx-auto">
+            <span class="fab fa-github-square"></span>
+            <a id="gitlink" href="/auth/github">Login with GitHub</a>
+          </button>
 
-      <div class="row text-center">
-        <div class="col-md-12">
-          <h3>
-
-            <button class="btn btn-block btn-social btn-github">
-              <span class="fab fa-github-square"></span><a id="gitlink" href="/auth/github">Sign in with GitHub</a>
-            </button>
-
-            <button class="loginBtn loginBtn--google">
-              <a href="/auth/google">Login with Google</a>
-            </button>
-          </h3>
+          <button class="btn btn-block btn-social btn-google mx-auto">
+            <span class="fab fa-google-plus-g"></span>
+            <a id="gitlink" href="/auth/google">Login with Google</a>
+          </button>
         </div>
       </div>
     </div>
   </div>
-</div>

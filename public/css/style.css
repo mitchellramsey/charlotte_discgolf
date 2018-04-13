@@ -97,7 +97,8 @@ footer a:hover {
     border-color: none;
 }
 
-.btn-github {
+.btn-github,
+.btn-google {
     width: 190px;
 }
 
@@ -146,8 +147,21 @@ footer a:hover {
 }
 
 .course-main {
+    min-height: 475px;
+    margin-bottom: 100px;
+    clear: both;
+}
+
+.font-color {
+    color: #d3d3d3;
+}
+
+.background-img {
     height: 475px;
-    padding-top: 75px;
+}
+
+.btn-light {
+    border-radius: 0%;
 }
 
 .github {
@@ -186,21 +200,33 @@ footer a:hover {
     margin-bottom: 10px;
 }
 
-#username {
-    margin-right: 5px;
+.button-div {
+    padding-top: 250px;
 }
 
-#newUser {
-    padding: 5px;
+/* -------------------------  ID's  ------------------------------- */
+
+#home-background {
+    background: linear-gradient(90deg,rgba(175, 72, 72, 0.4),rgba(182, 91, 69, 0.4)),
+    url("/images/signin-bg.jpg") #fff no-repeat;
+}
+
+#courses-bg {
+    background: linear-gradient(90deg,rgba(175, 72, 72, 0.4),rgba(182, 91, 69, 0.4)),
+    url("/images/courses-background.jpg") #fff no-repeat;
+}
+
+#user_round {
+    background:
+    url("/images/user-round.jpg") #fff no-repeat;
+}
+
+#course-row {
+    padding-top: 75px;
+}
+
+#font-rating {
     color: #000;
-}
-
-#forgotPass {
-    padding-left: 90px;
-}
-
-#rememberMe {
-    margin-bottom: 0px;
 }
 
 #par {
@@ -212,11 +238,17 @@ footer a:hover {
 }
 
 #sign-in-page {
-    height: 600px;
+    height: 600px; 
 }
 
 #sign-in-header {
     width: 100%;
+    font-weight: 400;
+}
+
+#sign-in-text {
+    color: #fff;
+    font-weight: 300;
 }
 
 #gitlink {
@@ -289,7 +321,7 @@ hr {
     }
 }
 
-/* Google buttons */
+/* Google button */
 
 /* Shared */
 .loginBtn {

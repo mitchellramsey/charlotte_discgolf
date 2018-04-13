@@ -35,7 +35,6 @@ module.exports = function(app) {
         });
             // Rendering courses and passing the data to be parsed on the handlebars page
             // res.render("user_round", userRoundObj);
-        
     });
   };
   

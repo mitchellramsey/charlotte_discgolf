@@ -9,6 +9,8 @@ module.exports = function (passport, UserInfo) {
     var passport = require("passport");
     // Loading the Google log-in Strategy
     var GoogleStrategy = require("passport-google-oauth20");
+    // Loading the Github log-in Strategy
+    var GithubStrategy = require("passport-github2");
     // Requiring keys.js
     var keys = require("./keys");
 
@@ -30,8 +32,8 @@ module.exports = function (passport, UserInfo) {
             // Client ID and secret
             clientID: keys.google.clientID,
             clientSecret: keys.google.clientSecret,
-            // options for the strategy
-            callbackURL: "/auth/google/redirect",
+            // Callback
+            callbackURL: keys.google.callbackURL,
         }, 
         (accessToken, refreshToken, profile, done) => {
 
@@ -58,6 +60,46 @@ module.exports = function (passport, UserInfo) {
                             // console.log(res);
                             // console.log(req);
                             done(null, req.UserInfo)
+                        });
+                    }
+                });
+            })
+        })
+    )
+
+    // --------------------------------- GITHUB AUTH ------------------------- //
+
+    // Configuring and using the Github Strategy
+    passport.use(
+        new GithubStrategy({
+            // Client ID and secret
+            clientID: keys.github.clientID,
+            clientSecret: keys.github.clientSecret,
+            // Callback
+            callbackURL: keys.github.callbackURL,
+        }, 
+        (accessToken, refreshToken, profile, done) => {
+
+            process.nextTick(function() { 
+                // Searching for an existing githubId
+                db.UserInfo.findOne({
+                    where: {
+                        githubId: profile.id
+                    }
+                    }).then(function(githubId) {
+                    // If github ID exists..
+                    if (githubId) {
+                        console.log("You already have an account:" + profile.displayName);
+                        done(null, githubId);
+                    } else {
+                        // Creating a new user and putting it into the User-Info table
+                        db.UserInfo.create({
+                            // Github display name
+                            username: profile.displayName,
+                            // Github ID
+                            githubId: profile.id
+                        }).then(function (req, res) {
+                            done(null, req)
                         });
                     }
                 });
