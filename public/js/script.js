@@ -117,12 +117,10 @@ var frontEndScript = {
 
                $(".maps").on("click", function() {
 
-                var address = $(this).data("address");
-
-                var googleURL = "https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=" + address;
-
-                $(location).attr(googleURL);
-               });
+                $("#pdf1img").wrap($('<a>',{
+                    href: '/Content/pdf/' + data.pdf1
+                 }));
+                });
             });
         } else {
             // Browser doesn't support Geolocation

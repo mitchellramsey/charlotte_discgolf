@@ -9,14 +9,14 @@
   },
   "test": {
     "username": "root",
-    "password": "root",
+    "password": "Boarder@14",
     "database": "disc_golf_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "root",
+    "password": "Boarder@14",
     "database": "disc_golf_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
