@@ -48,8 +48,6 @@ module.exports = function (app) {
         include: [db.Course]
         
       }).then(function(dbUserRounds) {
-          console.log(dbUserRounds);
-          console.log("Look Above");
             var userMainInfo = {
               users: req,
               userId : id,
