@@ -1,50 +1,53 @@
-<div class="container">
-    <h1 class="display-4 text-center course-header">Courses</h1>
-</div>
+{{!-- Course List --}}
+<div id="courses-bg">
+    <div class="container">
+        <h1 class="display-4 text-center course-header">Courses</h1>
+    </div>
 
-<div class="container course-main">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="row text-center">
-                  <div class="col-md-3">
-                        <h2>Course Name</h2>
-                    </div>
+    <div class="container background-img">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row text-center" id="course-row">
                     <div class="col-md-3">
-                        <h2>Address</h2>
-                    </div>
-                    <div class="col-md-3">
-                        <h2>Holes</h2>
-                    </div>
-                    <div class="col-md-3">
-                        <h2>Rating</h2>
-                    </div>
+                            <h2>Course Name</h2>
+                        </div>
+                        <div class="col-md-3">
+                            <h2>Address</h2>
+                        </div>
+                        <div class="col-md-3">
+                            <h2>Holes</h2>
+                        </div>
+                        <div class="col-md-3">
+                            <h2>Rating</h2>
+                        </div>
+                </div>
+                    {{#each coursesList}}
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="text-center">
+                                    <a href="/courses/{{this.id}}/holes"><button class="btn btn-light"><li data-id="{{this.id}}">{{name}}</li></button></a>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3 font-color">
+                                <ul class="text-center">
+                                    <li>{{address}}</li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3 font-color">
+                                <ul class="text-center">
+                                    <li>{{holes}}</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3" id="font-rating">
+                                <ul class="text-center">
+                                    <li>{{rating}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    {{/each}}
             </div>
-                {{#each coursesList}}
-                    <div class="row">
-                        <div class="col-md-3">
-                            <ul class="text-center">
-                                <a href="/courses/{{this.id}}/holes"><button><li data-id="{{this.id}}">{{name}}</li></button></a>
-                            </ul>
-                        </div>
-
-                        <div class="col-md-3">
-                            <ul class="text-center">
-                                <li>{{address}}</li>
-                            </ul>
-                        </div>
-
-                        <div class="col-md-3">
-                            <ul class="text-center">
-                                <li>{{holes}}</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <ul class="text-center">
-                                <li>{{rating}}</li>
-                            </ul>
-                        </div>
-                    </div>
-                {{/each}}
         </div>
     </div>
 </div>

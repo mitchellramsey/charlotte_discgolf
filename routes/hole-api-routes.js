@@ -353,6 +353,7 @@ module.exports = function(app) {
             // Passing handlebars the data from findAll
             var infoObj = {
                 infoList: dbHole,
+                users: req,
                 // Renders the courses-info partial
                 partial: function() {
                     return "courses-info";

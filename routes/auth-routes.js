@@ -42,4 +42,29 @@ module.exports = function (app) {
             failureRedirect: '/'
         }
     ));
+
+    // ------------------------------- GITHUB AUTH ------------------------------------ //
+
+    //  Auth with Github
+    // Using Passport use the Github stategy
+    // To redirect to the consent screen
+    app.get("/auth/github", passport.authenticate("github", {
+        // Looking for profile contents
+        scope: ["profile"],
+        // Google prompt to choose which email/account
+        // Doing this so upon log out, youre not automatically using the same email address again
+        // Incase user would like to switch
+        prompt: "select_account"
+    }));
+
+    // Callback that Passport uses to exchange the URL params
+    // For the users information
+    app.get('/auth/github/callback',
+        passport.authenticate('github', {
+            // On sucess redirect to the user-profile
+            successRedirect: '/userprofile',
+            // Else return to the log-in screen
+            failureRedirect: '/'
+        }
+    ));
 };
