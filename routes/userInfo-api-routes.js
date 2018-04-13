@@ -1,15 +1,15 @@
 // Requiring models
 var db = require("../models");
 
-db.UserInfo.findAndCountAll({}).then(function(result) {
-  if(result.count===0) {
-      db.UserInfo.create({
-          username: "Mitchell Ramsey",
-          googleId: 100777225117038659287
+// db.UserInfo.findAndCountAll({}).then(function(result) {
+//   if(result.count===0) {
+//       db.UserInfo.create({
+//           username: "Mitchell Ramsey",
+//           googleId: 100777225117038659287
 
-      });
-  }
-});
+//       });
+//   }
+// });
 
 // Creating a new user
 module.exports = function(app) {
