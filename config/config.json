@@ -1,12 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "root",
-=======
-    "password": "Boarder@14",
-    "port": 3306,
->>>>>>> 5a047a08543131838b14f6ed84d036400f5fc498
     "database": "disc_golf_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
