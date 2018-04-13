@@ -113,22 +113,16 @@ var frontEndScript = {
                     lng: position.coords.longitude
                 };
 
-                // When clicking on a Google Maps image..
-                $(".destination").on("click", function() {
-                    // Accessing the address from the data-attribute
-                    var address = $(this).data("address");
+                
 
-                        // Dynamically creating a URL
-                        var googleURL = "https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=" + address;
+               $(".maps").on("click", function() {
 
-                        var a = $("<a>").attr("href", googleURL);
+                var address = $(this).data("address");
 
-                        $(".destination").wrap(a);
-                        // When clicking the map - Display the directions in the cross platform URL - Opens either Google Maps App on phone
-                        // Or opens it in the web browser - creating step by step GPS based driving directions
-                        // See googles documentation on Maps URL for types of platform support
-                        window.location.href = googleURL;  
-                });
+                var googleURL = "https://www.google.com/maps/dir/?api=1&origin=" + pos.lat + "," + pos.lng + "&destination=" + address;
+
+                $(location).attr(googleURL);
+               });
             });
         } else {
             // Browser doesn't support Geolocation
