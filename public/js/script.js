@@ -1,48 +1,4 @@
-
-   <div class="container">
-      <h1 class="display-4 text-center course-header">Play a Round</h1>
-   </div>
-   <div class="container course-main">
-      <div class="row">
-         <div class="col-md-12 text-center">                
-            <hr>
-            <h3>Select Course</h3>
-            <hr>
-            <select class='courseSelect'>
-                <option value="0">Select Course</option>
-                {{#each courseInfo}}
-                <option value={{id}} >{{name}}</option>
-                {{/each}}
-            </select>
-            <button type="button" id="viewHoles">View Holes</button>
-            <hr>
-         </div>
-      </div>
-      
-      <div class="row">
-          <div class="col-md-3 text-center" >
-              <h4>Hole Number</h4>
-              <div id="holeNumber"></div>
-          </div>
-          <div class="col-md-3 text-center" >
-              <h4>Par</h4>
-              <div id="par"></div>
-          </div>
-          <div class="col-md-3 text-center" >
-              <h4>Distance</h4>
-              <div id="distance"></div>
-          </div>
-          <div class="col-md-3 text-center" >
-              <h4>Tosses</h4>
-              <div id="tosses"></div>
-          </div>
-      </div>
-               
-   </div>
-
-{{!----------------------------  jQuery ------------------------- --}}
-<script>
-$(document).on("click", function() {
+$(document).on("ready", function () {
     $("#viewHoles").on("click", function() {
         var courseId = $(".courseSelect").val();
         console.log(courseId);
@@ -85,4 +41,3 @@ $(document).on("click", function() {
         });
     })
 });
-</script>
