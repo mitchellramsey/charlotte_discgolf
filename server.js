@@ -4,8 +4,10 @@ var express = require("express");
 var cookieSession = require("cookie-session");
 // Requiring Passport
 var passport = require("passport");
+// Requiring the models folder for syncing
+var db = require("./models");
 // Requiring the Passport-setup file
-var passportSetup = require("./config/passport-setup")(app);
+var passportSetup = require("./config/passport-setup")(app, db.UserInfo);
 // Requiring Body-parser
 var bodyParser = require("body-parser");
 // Requiring hbs
@@ -18,9 +20,6 @@ var PORT = process.env.PORT || 8080;
 
 // Intializing Express
 var app = express();
-
-// Requiring the models folder for syncing
-var db = require("./models");
 
 // Setting cookieSession
 app.use(cookieSession({
