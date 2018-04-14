@@ -321,10 +321,12 @@ footer a:hover {
 
 #course-row {
     padding-top: 75px;
+    margin-left: 20px;
 }
 
 #font-rating {
     color: #000;
+    /* margin-right: 5px; */
 }
 
 #par {
