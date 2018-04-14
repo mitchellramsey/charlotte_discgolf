@@ -1,0 +1,9 @@
+<span class="navbar-text">
+    <p class="text-right courses-login">Welcome,
+      <a href="/userprofile">
+        <span class="navbar-text" data-id="{{this.id}}">
+          {{!-- Logging the username of the person logged in --}} {{#each users}} {{req.user.username}} {{/each}}
+      </a>
+      <a href="/auth/logout" class="btn btn-primary">Log Out</a>
+    </p>
+</span>

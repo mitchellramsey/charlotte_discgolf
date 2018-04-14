@@ -343,7 +343,20 @@ db.Hole.findAndCountAll({}).then(function(result) {
 
 
 module.exports = function(app) {
-    app.get("/courses/:id/holes", function(req,res) {
+
+    // Checking to see if the user is logged in or not
+    var authCheck = function (req, res, next) {
+        // If user is not logged in..
+        if (!req.user) {
+        // Re-directs to the main page
+        // Which is sign-in/sign-up
+        res.redirect("/");
+        } else {
+        next();
+        }
+    }
+
+    app.get("/courses/:id/holes", authCheck, function(req,res) {
         // Retrieving all database records
         db.Hole.findAll({
             where: {

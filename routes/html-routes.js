@@ -2,8 +2,20 @@ var db = require("../models");
 
 module.exports = function (app) {
 
+    // Checking to see if the user is logged in or not
+    var authCheck = function (req, res, next) {
+    // If user is not logged in..
+    if (!req.user) {
+      // Re-directs to the main page
+      // Which is sign-in/sign-up
+      res.redirect("/");
+    } else {
+      next();
+    }
+  }
+
   // Hompage route
-  app.get("/homepage", function (req, res) {
+  app.get("/homepage", authCheck, function (req, res) {
     // Method to load the homepage partial
     var personObj = {
       users: req,
@@ -16,18 +28,6 @@ module.exports = function (app) {
     // Rending user_main
     res.render("index", personObj);
   });
-
-  // Checking to see if the user is logged in or not
-  var authCheck = function (req, res, next) {
-    // If user is not logged in..
-    if (!req.user) {
-      // Re-directs to the main page
-      // Which is sign-in/sign-up
-      res.redirect("/");
-    } else {
-      next();
-    }
-  }
 
   // User profile route
   app.get("/userprofile", authCheck, function (req, res) {
@@ -78,8 +78,6 @@ module.exports = function (app) {
       // console.log(playRoundObj.users);
       res.render("index", playRoundObj);
     }); 
-    
-
   });
 };
 
