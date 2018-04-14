@@ -62,7 +62,7 @@ module.exports = function (app) {
     app.get('/auth/github/callback',
         passport.authenticate('github', {
             // On sucess redirect to the user-profile
-            successRedirect: '/userprofile',
+            successRedirect: '/homepage',
             // Else return to the log-in screen
             failureRedirect: '/'
         }

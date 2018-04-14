@@ -31,6 +31,19 @@ db.Course.findAndCountAll({}).then(function(result) {
 
 // Exporting the function
 module.exports = function(app) {
+
+    // Checking to see if the user is logged in or not
+    var authCheck = function (req, res, next) {
+        // If user is not logged in..
+        if (!req.user) {
+        // Re-directs to the main page
+        // Which is sign-in/sign-up
+        res.redirect("/");
+        } else {
+        next();
+        }
+    }
+
     app.get("/courses", function(req,res) {
         // Retrieving all database records
         db.Course.findAll({}).then(function(dbCourse) {

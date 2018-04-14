@@ -1,16 +1,6 @@
 // Requiring models
 var db = require("../models");
 
-// db.UserInfo.findAndCountAll({}).then(function(result) {
-//   if(result.count===0) {
-//       db.UserInfo.create({
-//           username: "Mitchell Ramsey",
-//           googleId: 100777225117038659287
-
-//       });
-//   }
-// });
-
 // Creating a new user
 module.exports = function(app) {
   app.post("/new", function (req, res) {
@@ -24,8 +14,20 @@ module.exports = function(app) {
     res.redirect("/homepage/:user_name");
   });
 
+   // Checking to see if the user is logged in or not
+   var authCheck = function (req, res, next) {
+    // If user is not logged in..
+    if (!req.user) {
+      // Re-directs to the main page
+      // Which is sign-in/sign-up
+      res.redirect("/");
+    } else {
+      next();
+    }
+  }
 
-  app.get("/homepage/:user_name", function(req,res) {
+
+  app.get("/homepage/:user_name", authCheck, function(req,res) {
       // Retrieving all database records
       db.UserInfo.findOne({
         where: {
@@ -45,7 +47,7 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/user", function(req,res) {
+  app.get("/user", authCheck, function(req,res) {
     // Retrieving all database records
     db.UserInfo.findAll({}).then(function(dbUserInfo) {
         // Passing handlebars the data from findAll
