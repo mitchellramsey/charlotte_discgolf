@@ -34,7 +34,7 @@ module.exports = function (passport, UserInfo) {
             passReqToCallback: true
         }, 
         function(accessToken, refreshToken, profile, done) {
-
+                console.log(profile);
                 // Searching for an existing googleId
                 UserInfo.findOrCreate({
                     where: {
