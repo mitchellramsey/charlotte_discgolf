@@ -31,6 +31,7 @@ module.exports = function (passport, UserInfo) {
             clientSecret: keys.google.clientSecret,
             // Callback
             callbackURL: keys.google.callbackURL,
+            passReqToCallback: true
         }, 
         function(accessToken, refreshToken, profile, done) {
 
@@ -62,6 +63,7 @@ module.exports = function (passport, UserInfo) {
             clientSecret: keys.github.clientSecret,
             // Callback
             callbackURL: keys.github.callbackURL,
+            passReqToCallback: true
         }, 
         function(accessToken, refreshToken, profile, done) {
 
