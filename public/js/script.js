@@ -102,32 +102,8 @@ var frontEndScript = {
 
             });
         });
-    },
-    // Google Maps
-    getRoute: function () {
-        // Geolocate
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-
-
-
-                $(".destination").attr("href", function (i, href) {
-                    var blank = 'target' + "_blank";
-
-                    var address = $(this).data("address");
-
-                    return href + "&origin=" + pos.lat + "," + pos.lng + "&destination=" + address;
-                });
-            });
-        } else {
-            // Browser doesn't support Geolocation
-        }
     }
 }
 
 $(document).ready(frontEndScript.showHoleInfo);
-$(document).ready(frontEndScript.getRoute);
+
