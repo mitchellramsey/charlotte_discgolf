@@ -33,7 +33,7 @@ module.exports = function (passport, UserInfo) {
             callbackURL: keys.google.callbackURL,
             passReqToCallback: true
         }, 
-        function(accessToken, refreshToken, profile, done) {
+        function(naToken,accessToken, refreshToken, profile, done) {
                 console.log(profile);
                 // Searching for an existing googleId
                 UserInfo.findOrCreate({
