@@ -7,7 +7,7 @@ module.exports = function (passport, UserInfo) {
     // Loading the Google log-in Strategy
     var GoogleStrategy = require("passport-google-oauth20");
     // Loading the Github log-in Strategy
-    var GithubStrategy = require("passport-github2");
+    var FacebookStrategy = require("passport-facebook");
     // Requiring keys.js
     var keys = require("./keys");
 
@@ -33,7 +33,7 @@ module.exports = function (passport, UserInfo) {
             callbackURL: keys.google.callbackURL,
             passReqToCallback: true
         }, 
-        function(naToken,accessToken, refreshToken, profile, done) {
+        function(naToken, accessToken, refreshToken, profile, done) {
                 console.log(profile);
                 // Searching for an existing googleId
                 UserInfo.findOrCreate({
@@ -53,19 +53,20 @@ module.exports = function (passport, UserInfo) {
         })
     )
 
-    // --------------------------------- GITHUB AUTH ------------------------- //
+    // --------------------------------- FACEBOOK AUTH ------------------------- //
 
-    // Configuring and using the Github Strategy
+    // Configuring and using the Facebook Strategy
     passport.use(
-        new GithubStrategy({
+        new FacebookStrategy({
             // Client ID and secret
-            clientID: keys.github.clientID,
-            clientSecret: keys.github.clientSecret,
+            clientID: keys.facebook.clientID,
+            clientSecret: keys.facebook.clientSecret,
             // Callback
-            callbackURL: keys.github.callbackURL,
+            callbackURL: keys.facebook.callbackURL,
+            profileFields: ["id", "displayName"],
             passReqToCallback: true
         }, 
-        function(accessToken, refreshToken, profile, done) {
+        function(naToken, accessToken, refreshToken, profile, done) {
 
                 // Searching for an existing googleId
                 UserInfo.findOrCreate({
@@ -73,7 +74,7 @@ module.exports = function (passport, UserInfo) {
                         // Google display name
                         username: profile.displayName,
                         // Google ID
-                        githubId: profile.id
+                        facebookId: profile.id
                     }
                     }).spread(function(user) {
                     // If Google ID exists..

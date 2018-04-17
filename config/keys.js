@@ -8,10 +8,10 @@ module.exports = {
         callbackURL: "/auth/google/redirect"
     },
 
-    github: {
-        clientID: "39a0d19c4fd3d6b28793",
-        clientSecret: "90c0830525debfa5ddf2e3bd2d55f1d9b73b3879",
-        callbackURL: "/auth/github/callback"
+    facebook: {
+        clientID: "235491383674333",
+        clientSecret: "514801f439d71792b0317f8de971deda",
+        callbackURL: "/auth/facebook/callback"
     },
     // Cookie keys
     session: {

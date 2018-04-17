@@ -43,15 +43,15 @@ module.exports = function (app) {
         }
     ));
 
-    // ------------------------------- GITHUB AUTH ------------------------------------ //
+    // ------------------------------- Facebook AUTH ------------------------------------ //
 
-    //  Auth with Github
-    // Using Passport use the Github stategy
+    // Auth with Facebook
+    // Using Passport use the Facebook stategy
     // To redirect to the consent screen
-    app.get("/auth/github", passport.authenticate("github", {
+    app.get("/auth/facebook", passport.authenticate("facebook", {
         // Looking for profile contents
         scope: ["profile"],
-        // Google prompt to choose which email/account
+        // Facebook prompt to choose which email/account
         // Doing this so upon log out, youre not automatically using the same email address again
         // Incase user would like to switch
         prompt: "select_account"
@@ -59,8 +59,8 @@ module.exports = function (app) {
 
     // Callback that Passport uses to exchange the URL params
     // For the users information
-    app.get('/auth/github/callback',
-        passport.authenticate('github', {
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', {
             // On sucess redirect to the user-profile
             successRedirect: '/homepage',
             // Else return to the log-in screen
