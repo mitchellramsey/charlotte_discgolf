@@ -11,7 +11,7 @@ module.exports = {
     github: {
         clientID: "39a0d19c4fd3d6b28793",
         clientSecret: "90c0830525debfa5ddf2e3bd2d55f1d9b73b3879",
-        callbackURL: "http://stormy-scrubland-88373.heroku.com/auth/github/callback"
+        callbackURL: "/auth/github/callback"
     },
     // Cookie keys
     session: {
