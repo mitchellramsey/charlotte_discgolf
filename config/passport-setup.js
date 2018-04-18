@@ -68,16 +68,16 @@ module.exports = function (passport, UserInfo) {
         }, 
         function(naToken, accessToken, refreshToken, profile, done) {
 
-                // Searching for an existing googleId
+                // Searching for an existing FacebookId
                 UserInfo.findOrCreate({
                     where: {
-                        // Google display name
+                        // Facebook display name
                         username: profile.displayName,
                         // Google ID
                         facebookId: profile.id
                     }
                     }).spread(function(user) {
-                    // If Google ID exists..
+                    // If FacebookID exists..
                     if (user) {
                         console.log("You already have an account:" + profile.displayName);
                         return done(null, user);
