@@ -7,12 +7,6 @@ module.exports = {
         clientSecret: "EpeeMxD2rfCguqAC4w1UTo2E",
         callbackURL: "/auth/google/redirect"
     },
-
-    facebook: {
-        clientID: "235491383674333",
-        clientSecret: "514801f439d71792b0317f8de971deda",
-        callbackURL: "/auth/facebook/callback"
-    },
     // Cookie keys
     session: {
         cookieKey: "cltdscglf0110"
