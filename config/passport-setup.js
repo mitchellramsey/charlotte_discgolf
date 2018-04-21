@@ -52,37 +52,4 @@ module.exports = function (passport, UserInfo) {
                 });
         })
     )
-
-    // --------------------------------- FACEBOOK AUTH ------------------------- //
-
-    // Configuring and using the Facebook Strategy
-    passport.use(
-        new FacebookStrategy({
-            // Client ID and secret
-            clientID: keys.facebook.clientID,
-            clientSecret: keys.facebook.clientSecret,
-            // Callback
-            callbackURL: keys.facebook.callbackURL,
-            profileFields: ["id", "displayName"],
-            passReqToCallback: true
-        }, 
-        function(naToken, accessToken, refreshToken, profile, done) {
-
-                // Searching for an existing googleId
-                UserInfo.findOrCreate({
-                    where: {
-                        // Google display name
-                        username: profile.displayName,
-                        // Google ID
-                        facebookId: profile.id
-                    }
-                    }).spread(function(user) {
-                    // If Google ID exists..
-                    if (user) {
-                        console.log("You already have an account:" + profile.displayName);
-                        return done(null, user);
-                    }
-                });
-        })
-    )
 };

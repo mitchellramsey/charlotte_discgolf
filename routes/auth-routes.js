@@ -42,29 +42,4 @@ module.exports = function (app) {
             failureRedirect: '/'
         }
     ));
-
-    // ------------------------------- Facebook AUTH ------------------------------------ //
-
-    // Auth with Facebook
-    // Using Passport use the Facebook stategy
-    // To redirect to the consent screen
-    app.get("/auth/facebook", passport.authenticate("facebook", {
-        // Looking for profile contents
-        scope: ["profile"],
-        // Facebook prompt to choose which email/account
-        // Doing this so upon log out, youre not automatically using the same email address again
-        // Incase user would like to switch
-        prompt: "select_account"
-    }));
-
-    // Callback that Passport uses to exchange the URL params
-    // For the users information
-    app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', {
-            // On sucess redirect to the user-profile
-            successRedirect: '/homepage',
-            // Else return to the log-in screen
-            failureRedirect: '/'
-        }
-    ));
 };
