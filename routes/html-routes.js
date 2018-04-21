@@ -45,6 +45,7 @@ module.exports = function (app) {
           UserInfoId: id
 
         },
+        order:[ ['id', 'DESC']],
         include: [db.Course]
         
       }).then(function(dbUserRounds) {
